@@ -34,22 +34,31 @@ export default function Sidebar() {
           exit={{ x: -300, opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div
+          {/* <div
             className={`p-4 bg-[var(--surface-b)] flex flex-col h-screen fixed
     ${isOpen ? "w-full lg:w-64" : "w-0 !p-0 overflow-hidden"}`}
+          > */}
+          <div
+            className={` z-50 p-4 bg-[var(--surface-b)] flex flex-col h-full w-full lg:w-64 ${
+              isOpen ? "fixed" : "hidden"
+            }`}
           >
             <div className="flex-1 overflow-y-auto flex flex-col">
               <div className="flex gap-2 justify-between items-center">
+                <div className="hidden lg:block">
+                  <Button
+                    onClick={toggle}
+                    tooltip={t("sidebar.close")}
+                    tooltipOptions={{ position: "right" }}
+                    icon="pi pi-window-minimize"
+                    className="w-full"
+                    size="small"
+                  />
+                </div>
                 <Button
-                  onClick={toggle}
-                  tooltip={t("sidebar.close")}
-                  tooltipOptions={{ position: "right" }}
-                  icon="pi pi-window-minimize"
-                  className="w-full"
-                  size="small"
-                />
-                <Button
-                  onClick={() => router.push("/")}
+                  onClick={() => {
+                    router.push("/"), toggle();
+                  }}
                   tooltip={t("sidebar.new")}
                   tooltipOptions={{ position: "bottom" }}
                   icon="pi pi-plus"

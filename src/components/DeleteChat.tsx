@@ -23,7 +23,7 @@ export default function DeleteChat({
       style={{ width: "350px" }}
       modal
       footer={
-        <div className="flex justify-end gap-2">
+        <div className="flex justify-between gap-2 p-2">
           <Button label="Cancelar" onClick={onHide} className="p-button-text" />
           <Button label="Apagar" onClick={onConfirm} severity="danger" />
         </div>

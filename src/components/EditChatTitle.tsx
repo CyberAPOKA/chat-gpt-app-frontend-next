@@ -24,7 +24,6 @@ export default function EditChatTitle({
       setNewTitle(currentTitle);
     }
   }, [visible, currentTitle]);
-  
 
   return (
     <Dialog
@@ -34,7 +33,7 @@ export default function EditChatTitle({
       style={{ width: "400px" }}
       modal
       footer={
-        <div className="flex justify-end gap-2">
+        <div className="flex justify-between gap-2 p-2">
           <Button label="Cancelar" onClick={onHide} className="p-button-text" />
           <Button
             label="Salvar"
@@ -44,7 +43,7 @@ export default function EditChatTitle({
         </div>
       }
     >
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 p-2">
         <label htmlFor="chat-title">Novo título</label>
         <InputText
           id="chat-title"

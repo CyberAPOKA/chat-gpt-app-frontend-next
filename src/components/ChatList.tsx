@@ -8,7 +8,8 @@ import DeleteChat from "@/components/DeleteChat";
 import EditChatTitle from "@/components/EditChatTitle";
 import api from "@/services/api";
 import { DEFAULT_CHAT_LIMIT } from "@/constants/chat";
-import { t } from "i18next";
+import { useChatStore } from "@/stores/chatStore";
+import { isMobile } from "@/utils/isMobile";
 
 export default function ChatList({ chats }: { chats: Chat[] }) {
   const router = useRouter();
@@ -24,10 +25,16 @@ export default function ChatList({ chats }: { chats: Chat[] }) {
   const [loadingMore, setLoadingMore] = useState(false);
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const [scrollRequested, setScrollRequested] = useState(false);
+  const setCurrentTitle = useChatStore((state) => state.setCurrentTitle);
 
   useEffect(() => {
     setChatList(chats);
-  }, [chats]);
+    if (chats.length < limit) {
+      setHasMore(false);
+    } else {
+      setHasMore(true);
+    }
+  }, [chats, limit]);
 
   const handleOpenChat = (chatId: string) => {
     router.push(`/chat/${chatId}`);
@@ -59,7 +66,9 @@ export default function ChatList({ chats }: { chats: Chat[] }) {
           chat.id === selectedChat.id ? { ...chat, title: newTitle } : chat
         )
       );
-
+      if (pathname.includes(selectedChat.id)) {
+        setCurrentTitle(newTitle);
+      }
       setSelectedChat({ ...selectedChat, title: newTitle });
     } catch (error) {
       console.error("Erro ao renomear o chat:", error);
@@ -139,7 +148,7 @@ export default function ChatList({ chats }: { chats: Chat[] }) {
       <ul className="flex-1 overflow-y-auto overflow-x-hidden mr-2">
         {chatList.map((chat) => {
           const isActive = pathname.includes(chat.id);
-          const isHovered = hoveredChatId === chat.id;
+          const isHovered = isMobile() || hoveredChatId === chat.id;
 
           return (
             <li
@@ -151,7 +160,7 @@ export default function ChatList({ chats }: { chats: Chat[] }) {
               <button
                 onClick={() => handleOpenChat(chat.id)}
                 className={`text-left w-full text-sm p-2 rounded-xl hover:cursor-pointer text-[var(--text-color)] fade-mask
-                  overflow-hidden whitespace-nowrap pr-10
+                  overflow-hidden whitespace-nowrap text-ellipsis
                   ${
                     isActive
                       ? "bg-[var(--surface-d)]"
@@ -162,7 +171,7 @@ export default function ChatList({ chats }: { chats: Chat[] }) {
               </button>
 
               {isHovered && (
-                <div className="absolute right-2 top-1/2 -translate-y-1/2 z-10">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
                   <i
                     className="bg-[var(--primary-color)] pi pi-ellipsis-v text-[var(--surface-a)] p-2 rounded-full hover:cursor-pointer"
                     onClick={(e) => showOverlayPanel(e, chat)}
@@ -183,7 +192,7 @@ export default function ChatList({ chats }: { chats: Chat[] }) {
               size="small"
             />
           ) : (
-            <p className="text-sm text-gray-500">{t("chat.noMore")}</p>
+            <p className="text-sm text-gray-500">{/* {t("chat.noMore")} */}</p>
           )}
         </div>
       </ul>

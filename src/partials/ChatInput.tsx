@@ -18,7 +18,7 @@ export default function ChatInput({
 
   return (
     <div className="flex justify-center items-center">
-      <div className="fixed bottom-4 w-full max-w-5xl flex container mx-auto flex-col gap-1 bg-[var(--surface-a)]">
+      <div className="fixed bottom-4 w-full md:max-w-none lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl flex container mx-auto flex-col gap-1 bg-[var(--surface-a)] px-4">
         <InputTextarea
           value={prompt}
           onChange={(e) => {

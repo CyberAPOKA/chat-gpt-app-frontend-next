@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { Dropdown } from "primereact/dropdown";
 import { useState, useEffect } from "react";
 import i18n from "@/i18n";
-import Image from "next/image";
 
 type LanguageOption = {
   code: string;
@@ -23,7 +22,7 @@ function LanguageItemTemplate(option?: LanguageOption | null) {
 
   return (
     <div className="flex items-center gap-2">
-      <Image src={option.flag} alt={option.label} width={20} height={15} />
+      <img src={option.flag} alt={option.label}  className="w-6"/>
       <span>{option.label}</span>
     </div>
   );

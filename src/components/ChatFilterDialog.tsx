@@ -60,7 +60,7 @@ export default function ChatFilterDialog({
       modal
     >
       <div className="pt-2">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2  p-2">
           <InputText
             value={query}
             onChange={(e) => setQuery(e.target.value)}

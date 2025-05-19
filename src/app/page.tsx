@@ -39,9 +39,11 @@ export default function Home() {
   if (!user) return <LoadingScreen />;
 
   return (
-    <div className="flex min-h-screen">
+    <div className="relative flex min-h-screen overflow-hidden">
       <Sidebar />
-      <MainContent chatId="" initialMessages={[]} loading={false} />
+      <div className="flex-1">
+        <MainContent chatId="" initialMessages={[]} loading={false} />
+      </div>
     </div>
   );
 }

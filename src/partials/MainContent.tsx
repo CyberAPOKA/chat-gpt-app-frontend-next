@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import { useSidebarStore } from "@/stores/sidebarStore";
 import { MainContentProps } from "@/types/props";
 import { Message } from "@/types/message";
+import { useChatModeStore } from "@/stores/chatModeStore";
+import { useChatStore } from "@/stores/chatStore";
 
 export default function MainContent({
   chatId,
@@ -23,11 +25,17 @@ export default function MainContent({
     }
     return "";
   });
-
   const [messages, setMessages] = useState<Message[]>(initialMessages || []);
   const [sending, setSending] = useState(false);
   const router = useRouter();
   const isSidebarOpen = useSidebarStore((state) => state.isOpen);
+  const interactionMode = useChatModeStore((state) => state.interactionMode);
+  const [title, setTitle] = useState(initialTitle || "");
+  const setCurrentTitle = useChatStore((state) => state.setCurrentTitle);
+
+  useEffect(() => {
+    setCurrentTitle(initialTitle || "");
+  }, [initialTitle]);
 
   useEffect(() => {
     if (initialMessages) {
@@ -63,7 +71,7 @@ export default function MainContent({
       await api.post(`/chats/${chatId}/messages`, { prompt });
 
       const res = await api.get(`/chats/${chatId}`);
-      setMessages(Array.isArray(res.data) ? res.data : []);
+      setMessages(res.data?.messages || []);
 
       refreshChats();
     } catch (err) {
@@ -76,18 +84,20 @@ export default function MainContent({
 
   return (
     <div
-      className={`flex-1 flex flex-col gap-4 bg-[var(--surface-a)] transition-all duration-300 ${
+      className={`flex-1 flex flex-col gap-1 md:gap-2 lg:gap-4 bg-[var(--surface-a)] transition-all duration-300 ${
         isSidebarOpen ? "lg:ml-64" : "lg:ml-0"
       }`}
     >
-      <ChatHeader title={initialTitle} />
+      <ChatHeader />
       <ChatMessages messages={messages} loading={loading} sending={sending} />
-      <ChatInput
-        prompt={prompt}
-        setPrompt={setPrompt}
-        sending={sending}
-        onSend={sendMessage}
-      />
+      {interactionMode && (
+        <ChatInput
+          prompt={prompt}
+          setPrompt={setPrompt}
+          sending={sending}
+          onSend={sendMessage}
+        />
+      )}
     </div>
   );
 }

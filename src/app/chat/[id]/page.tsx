@@ -10,7 +10,6 @@ import { useTranslation } from "react-i18next";
 import LoadingScreen from "@/components/LoadingScreen";
 import { DEFAULT_MESSAGE_LIMIT } from "@/constants/chat";
 
-
 export default function ChatPage() {
   const params = useParams();
   const router = useRouter();
@@ -38,14 +37,18 @@ export default function ChatPage() {
   if (!messages) return <LoadingScreen />;
 
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
-      <MainContent
-        chatId={chatId}
-        initialMessages={messages}
-        initialTitle={title}
-        loading={false}
-      />
+    <div className="relative flex min-h-screen overflow-hidden">
+      <div className="hidden lg:block">
+        <Sidebar />
+      </div>
+      <div className="flex-1">
+        <MainContent
+          chatId={chatId}
+          initialMessages={messages}
+          initialTitle={title}
+          loading={false}
+        />
+      </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import User from "@/components/User";
 import Sending from "@/components/Sending";
 import Loading from "@/components/Loading";
 import { ChatMessagesProps } from "@/types/props";
+import { useChatModeStore } from "@/stores/chatModeStore";
 
 export default function ChatMessages({
   messages,
@@ -14,9 +15,9 @@ export default function ChatMessages({
 }: ChatMessagesProps) {
   const { t } = useTranslation();
   const bottomRef = useRef<HTMLDivElement>(null);
-
   const [showScrollToBottom, setShowScrollToBottom] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const interactionMode = useChatModeStore((state) => state.interactionMode);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -35,7 +36,12 @@ export default function ChatMessages({
   }, []);
 
   return (
-    <div className="flex-1 overflow-y-auto relative mb-32" ref={containerRef}>
+    <div
+      className={`flex-1 overflow-y-auto relative px-2 mt-20 lg:mt-0 ${
+        interactionMode ? "mb-32" : ""
+      }`}
+      ref={containerRef}
+    >
       <div className="container mx-auto max-w-5xl">
         {messages.map((msg) =>
           msg.role === "user" ? (

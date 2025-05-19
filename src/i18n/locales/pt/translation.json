@@ -23,7 +23,9 @@
         "filterTitle": "Buscar conversas",
         "filterPlaceholder": "Procure pelo título da conversa...",
         "noChats": "Nenhuma conversa encontrada",
-        "noMore": "Sem mais conversas"
+        "noMore": "Sem mais conversas",
+        "visualization": "Visualização",
+        "interaction": "Interação"
     },
     "sidebar": {
         "close": "Fechar barra lateral",
