@@ -1,7 +1,37 @@
 {
     "login": "Login",
-    "register": "Register",
+    "register": "Create account",
+    "name": "Name",
     "email": "Email",
     "password": "Password",
-    "alreadyHaveAccount": "Already have an account?"
+    "confirmPassword": "Confirm password",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginSuccess": "Login successful!",
+    "registerSuccess": "Account successfully created!",
+    "logout": "Logout",
+    "changeTheme": "Change theme",
+    "chooseTheme": "Choose a theme",
+    "chats": "Chats",
+    "chat": {
+        "noMessages": "What’s on your mind today?",
+        "inputPlaceholder": "Ask something",
+        "new": "New chat",
+        "sending": "Cooking your answer...",
+        "send": "Send",
+        "loading": "Loading messages...",
+        "filter": "Search",
+        "filterTitle": "Search chats",
+        "filterPlaceholder": "Search by chat title...",
+        "noChats": "No chats found",
+        "noMore": "No more chats",
+        "visualization": "Visualization",
+        "interaction": "Interaction"
+    },
+    "sidebar": {
+        "close": "Close sidebar",
+        "new": "New chat",
+        "filter": "Filter",
+        "open": "Open sidebar"
+    },
+    "loading": "Loading..."
 }

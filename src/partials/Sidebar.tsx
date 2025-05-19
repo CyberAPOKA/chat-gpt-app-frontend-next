@@ -81,7 +81,7 @@ export default function Sidebar() {
               <h2 className="text-xl font-bold mt-4 mb-2">{t("chats")}</h2>
               <ChatList chats={chats} />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap lg:flex-col gap-2">
               <LanguageSwitcher />
               <ChangeTheme />
               <LogoutButton />

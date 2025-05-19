@@ -1,6 +1,37 @@
 {
     "login": "Iniciar sesión",
-    "register": "Registrar",
-    "email": "Correo",
-    "password": "Contraseña"
+    "register": "Crear cuenta",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "loginSuccess": "¡Inicio de sesión exitoso!",
+    "registerSuccess": "¡Cuenta creada con éxito!",
+    "logout": "Cerrar sesión",
+    "changeTheme": "Cambiar tema",
+    "chooseTheme": "Elegir un tema",
+    "chats": "Conversaciones",
+    "chat": {
+        "noMessages": "¿En qué estás pensando hoy?",
+        "inputPlaceholder": "Haz una pregunta",
+        "new": "Nueva conversación",
+        "sending": "Preparando tu respuesta...",
+        "send": "Enviar",
+        "loading": "Cargando mensajes...",
+        "filter": "Buscar",
+        "filterTitle": "Buscar conversaciones",
+        "filterPlaceholder": "Busca por el título de la conversación...",
+        "noChats": "No se encontraron conversaciones",
+        "noMore": "No hay más conversaciones",
+        "visualization": "Visualización",
+        "interaction": "Interacción"
+    },
+    "sidebar": {
+        "close": "Cerrar barra lateral",
+        "new": "Nueva conversación",
+        "filter": "Filtrar",
+        "open": "Abrir barra lateral"
+    },
+    "loading": "Cargando..."
 }

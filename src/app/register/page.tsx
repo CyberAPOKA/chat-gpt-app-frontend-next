@@ -83,47 +83,60 @@ export default function RegisterPage() {
           <FloatLabel>
             <InputText
               name="name"
+              id="name"
               value={form.name}
               onChange={handleChange}
               className="w-full"
+              data-testid="name"
             />
-            <label>{t("name")}</label>
+            <label htmlFor="name">{t("name")}</label>
           </FloatLabel>
           <FloatLabel>
             <InputText
               name="email"
+              id="email"
               value={form.email}
               onChange={handleChange}
               className="w-full"
+              data-testid="email"
             />
-            <label>{t("email")}</label>
+            <label htmlFor="email">{t("email")}</label>
           </FloatLabel>
           <FloatLabel>
             <Password
               name="password"
+              id="password"
               value={form.password}
               onChange={handleChange}
               toggleMask
               className="!w-full"
+              data-testid="password"
             />
-            <label>{t("password")}</label>
+            <label htmlFor="password">{t("password")}</label>
           </FloatLabel>
           <FloatLabel>
             <Password
               name="confirmPassword"
+              id="confirmPassword"
               value={form.confirmPassword}
               onChange={handleChange}
               feedback={false}
               toggleMask
               className="!w-full"
+              data-testid="confirmPassword"
             />
-            <label>{t("confirmPassword")}</label>
+            <label htmlFor="confirmPassword">{t("confirmPassword")}</label>
           </FloatLabel>
-          <Button label={t("register")} onClick={register} />
+          <Button
+            label={t("register")}
+            onClick={register}
+            data-testid="register-button"
+          />
           <Button
             label={t("alreadyHaveAccount")}
             severity="info"
             onClick={() => router.push("/login")}
+            data-testid="login-button"
           />
         </div>
       </div>

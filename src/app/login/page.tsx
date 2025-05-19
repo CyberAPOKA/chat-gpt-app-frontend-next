@@ -62,8 +62,10 @@ export default function LoginPage() {
               value={form.email}
               onChange={handleChange}
               className="w-full"
+              data-testid="email"
+              id="email"
             />
-            <label>{t("email")}</label>
+            <label htmlFor="email">{t("email")}</label>
           </FloatLabel>
           <FloatLabel>
             <Password
@@ -72,15 +74,22 @@ export default function LoginPage() {
               onChange={handleChange}
               toggleMask
               className="!w-full"
+              data-testid="password"
+              id="password"
             />
-            <label>{t("password")}</label>
+            <label htmlFor="password">{t("password")}</label>
           </FloatLabel>
-          <Button label={t("login")} onClick={login} />
+          <Button
+            label={t("login")}
+            onClick={login}
+            data-testid="login-button"
+          />
 
           <Button
             label={t("register")}
             severity="info"
             onClick={() => router.push("/register")}
+            data-testid="register-button"
           />
         </div>
       </div>
