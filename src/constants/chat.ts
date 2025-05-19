@@ -1,0 +1,2 @@
+export const DEFAULT_CHAT_LIMIT = 20;
+export const DEFAULT_MESSAGE_LIMIT = 100;

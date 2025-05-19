@@ -1,0 +1,35 @@
+{
+    "login": "Entrar",
+    "register": "Criar conta",
+    "name": "Nome",
+    "email": "Email",
+    "password": "Senha",
+    "confirmPassword": "Confirmar senha",
+    "alreadyHaveAccount": "Ja possui uma conta?",
+    "loginSuccess": "Login realizado com sucesso!",
+    "registerSuccess": "Conta criada com sucesso!",
+    "logout": "Sair",
+    "changeTheme": "Alterar tema",
+    "chooseTheme": "Escolha um tema",
+    "chats": "Conversas",
+    "chat": {
+        "noMessages": "No que você está pensando hoje?",
+        "inputPlaceholder": "Pergunte alguma coisa",
+        "new": "Nova conversa",
+        "sending": "Cozinhando sua resposta...",
+        "send": "Enviar",
+        "loading": "Carregando mensagens...",
+        "filter": "Buscar",
+        "filterTitle": "Buscar conversas",
+        "filterPlaceholder": "Procure pelo título da conversa...",
+        "noChats": "Nenhuma conversa encontrada",
+        "noMore": "Sem mais conversas"
+    },
+    "sidebar": {
+        "close": "Fechar barra lateral",
+        "new": "Nova conversa",
+        "filter": "Filtrar",
+        "open": "Abrir barra lateral"
+    },
+    "loading": "Carregando..."
+}
