@@ -12,6 +12,7 @@ import { refreshChats } from "@/utils/loadChats";
 import ChatFilterDialog from "@/components/ChatFilterDialog";
 import { useSidebarStore } from "@/stores/sidebarStore";
 import { motion, AnimatePresence } from "framer-motion";
+import { isMobile } from "@/utils/isMobile";
 
 export default function Sidebar() {
   const router = useRouter();
@@ -24,6 +25,13 @@ export default function Sidebar() {
   useEffect(() => {
     refreshChats().catch((err) => console.error("Erro ao buscar chats:", err));
   }, []);
+
+  const handleNewChatClick = () => {
+    router.push("/");
+    if (isMobile()) {
+      toggle();
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -56,9 +64,7 @@ export default function Sidebar() {
                   />
                 </div>
                 <Button
-                  onClick={() => {
-                    router.push("/"), toggle();
-                  }}
+                  onClick={handleNewChatClick}
                   tooltip={t("sidebar.new")}
                   tooltipOptions={{ position: "bottom" }}
                   icon="pi pi-plus"

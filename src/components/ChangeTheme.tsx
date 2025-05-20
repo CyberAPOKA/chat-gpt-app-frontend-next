@@ -15,22 +15,22 @@ const themes = [
   // "bootstrap4-light-blue",
   // "bootstrap4-light-purple",
   // "fluent-light",
-  // "lara-dark-amber",
-  // "lara-dark-blue",
-  // "lara-dark-cyan",
-  // "lara-dark-green",
-  // "lara-dark-indigo",
-  // "lara-dark-pink",
+  "lara-dark-amber",
+  "lara-dark-blue",
+  "lara-dark-cyan",
+  "lara-dark-green",
+  "lara-dark-indigo",
+  "lara-dark-pink",
   "lara-dark-purple",
-  // "lara-dark-teal",
-  // "lara-light-amber",
-  // "lara-light-blue",
-  // "lara-light-cyan",
-  // "lara-light-green",
-  // "lara-light-indigo",
-  // "lara-light-pink",
+  "lara-dark-teal",
+  "lara-light-amber",
+  "lara-light-blue",
+  "lara-light-cyan",
+  "lara-light-green",
+  "lara-light-indigo",
+  "lara-light-pink",
   "lara-light-purple",
-  // "lara-light-teal",
+  "lara-light-teal",
   // "luna-amber",
   // "luna-blue",
   // "luna-green",
@@ -93,7 +93,7 @@ export default function ChangeTheme() {
         visible={visible}
         onHide={() => setVisible(false)}
       >
-        <div className="grid grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 p-4">
           {themes.map((theme) => (
             <Button
               key={theme}

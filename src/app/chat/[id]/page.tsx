@@ -37,7 +37,7 @@ export default function ChatPage() {
   if (!messages) return <LoadingScreen />;
 
   return (
-    <div className="relative flex min-h-screen overflow-hidden">
+    <div className="relative flex min-h-screen overflow-hidden bg-[var(--surface-a)]">
       <div className="hidden lg:block">
         <Sidebar />
       </div>
